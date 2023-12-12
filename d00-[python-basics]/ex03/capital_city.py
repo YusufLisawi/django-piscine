@@ -16,8 +16,12 @@ capital_cities = {
 
 args = sys.argv[1:]
 
-if len(args) == 1:
-    if args[0] in states.keys():
-        print(capital_cities[states[args[0]]])
-    else:
-        print("Unknown state")
+def main():
+    if len(args) == 1:
+        if args[0] in states.keys():
+            print(capital_cities[states[args[0]]])
+        else:
+            print("Unknown state")
+    
+if __name__ == "__main__":
+    main()

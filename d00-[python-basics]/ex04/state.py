@@ -24,10 +24,13 @@ def search_by_value(arg) -> str:
                     return key
     return None
 
-if len(args) == 1:
-    res = search_by_value(args[0])
-    if res:
-        print(res)
-    else:
-        print("Unknown capital city")
-        
+def main():
+    if len(args) == 1:
+        res = search_by_value(args[0])
+        if res:
+            print(res)
+        else:
+            print("Unknown capital city")
+
+if __name__ == "__main__":
+    main()

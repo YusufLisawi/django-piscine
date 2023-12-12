@@ -24,13 +24,17 @@ def search_by_value(arg) -> str:
                     return key
     return None
 
-if len(args) == 1:
-    inputs = [" ".join([j.capitalize() for j in i.strip().split(" ")]) for i in args[0].split(",") if len(i.strip()) > 0]
-    for i in inputs:
-        if i in states.keys():
-            print(f'{capital_cities[states[i]]} is the capital of {i}')
-        elif i in capital_cities.values():
-            res = search_by_value(i)
-            print(f'{i} is the capital of {res}')
-        else:
-            print(f'{i} is neither a capital city nor a state')
+def main():
+    if len(args) == 1:
+        inputs = [" ".join([j.capitalize() for j in i.strip().split(" ")]) for i in args[0].split(",") if len(i.strip()) > 0]
+        for i in inputs:
+            if i in states.keys():
+                print(f'{capital_cities[states[i]]} is the capital of {i}')
+            elif i in capital_cities.values():
+                res = search_by_value(i)
+                print(f'{i} is the capital of {res}')
+            else:
+                print(f'{i} is neither a capital city nor a state')
+
+if __name__ == "__main__":
+    main()

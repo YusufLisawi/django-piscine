@@ -21,4 +21,8 @@ d = [
     ('Burton' , '1939')
 ]
 
-print(dict([(i[1], i[0]) for i in d]))
+def main():
+    print(dict([(i[1], i[0]) for i in d]))
+
+if __name__ == "__main__":
+    main()
