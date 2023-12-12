@@ -25,9 +25,12 @@ def search_by_value(arg) -> str:
     return None
 
 if len(args) == 1:
-    res = search_by_value(args[0])
-    if res:
-        print(res)
-    else:
-        print("Unknown capital city")
-        
+    inputs = [" ".join([j.capitalize() for j in i.strip().split(" ")]) for i in args[0].split(",") if len(i.strip()) > 0]
+    for i in inputs:
+        if i in states.keys():
+            print(f'{capital_cities[states[i]]} is the capital of {i}')
+        elif i in capital_cities.values():
+            res = search_by_value(i)
+            print(f'{i} is the capital of {res}')
+        else:
+            print(f'{i} is neither a capital city nor a state')
