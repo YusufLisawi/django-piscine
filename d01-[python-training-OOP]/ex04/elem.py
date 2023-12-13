@@ -37,12 +37,13 @@ class Elem:
 
         Obviously.
         """
-        if (content and not Elem.check_type(content)) or tag_type not in ['double', 'simple']:
+        if not (self.check_type(content) or content is None) or tag_type not in ['double', 'simple']:
             raise Elem.ValidationError()
         self.tag = tag
         self.attr = attr
         self.content = []
-        self.content = self.add_content(content)
+        if content:
+            self.add_content(content)
         self.tag_type = tag_type
 
     def __str__(self):
@@ -81,6 +82,9 @@ class Elem:
         for elem in self.content:
             if (len(str(elem)) != 0):
                 result += str(elem) + '\n'
+        result = "  ".join(line for line in result.splitlines(True))
+        if len(result.strip()) == 0:
+            return ''
         return result
 
     def add_content(self, content):
@@ -109,9 +113,10 @@ class Elem:
 
 
 if __name__ == '__main__':
-    print(Text('\n'))
     print(Elem())
     # print(Elem('div', {}, None, 'double'))
     # print(Elem(tag='body', attr={}, content=Elem(), tag_type='double'))
     # print(Elem(content=Elem()))
     # print(Elem(content=[Text('foo'), Text('bar'), Elem()]))
+    # print(Elem(content=Elem(content=Elem(content=Elem()))))
+    # elem = Elem(content='')
