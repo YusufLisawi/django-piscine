@@ -16,7 +16,7 @@ class CoffeeMachine:
             return "An empty cup?! Gimme my money back!"
     
     class BrokeMachineException(Exception):
-        def __init__(self, *args: object) -> None:
+        def __init__(self) -> None:
             super().__init__("This coffee machine has to be repaired.")
 
     def repair(self):
