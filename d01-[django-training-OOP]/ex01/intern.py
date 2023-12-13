@@ -16,7 +16,6 @@ class Intern:
         return Intern.Coffee()
     
     
-
 if __name__ == "__main__":
     mark = Intern('Mark')
     noname = Intern()
