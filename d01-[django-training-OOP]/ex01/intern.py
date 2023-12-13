@@ -1,4 +1,8 @@
 class Intern:
+    class Coffee:
+        def __str__(self) -> str:
+            return "This is the worst coffe you ever tasted."
+
     def __init__(self, name="My name? I'm nobody, an intern, I have no name.") -> None:
        self.name = name 
     
@@ -8,13 +12,10 @@ class Intern:
     def work(self) -> Exception:
         raise Exception("I'm just an intern, I can't do that...")
     
-    def make_coffee(self):
-        return Coffee()
+    def make_coffee(self) -> Coffee:
+        return Intern.Coffee()
     
     
-class Coffee:
-    def __str__(self) -> str:
-        return "This is the worst coffe you ever tasted."
 
 if __name__ == "__main__":
     mark = Intern('Mark')
