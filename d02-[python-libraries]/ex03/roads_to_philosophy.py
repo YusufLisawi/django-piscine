@@ -34,8 +34,10 @@ def parse_html(html: str):
         if len(a_tags := p.find_all('a')) != 0:
             break
     if len(a_tags) == 0:
-        raise Exception("It's a dead end !")    
-    fetch_wiki(a_tags[0]['href'])
+        raise Exception("It's a dead end !")
+    if a_tags[0].get('href') is not None and a_tags[0]['href'].startswith('/wiki/') and not a_tags[0]['href'].startswith('/wiki/Wikipedia:') and not a_tags[0]['href'].startswith('/wiki/Help:'):
+        return fetch_wiki(a_tags[0]['href'])
+    raise Exception("It's a dead end !")
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
