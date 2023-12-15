@@ -1,0 +1,18 @@
+{% extends "ex01/base.html" %}
+
+{% block title %}Ex01: Display process of a static page.{% endblock %}
+
+{% block content %}
+<h1>Process of Displaying a Static Web Page</h1>
+
+<ol>
+  <li>The client (usually a web browser) sends a request to the server for a specific URL, which corresponds to the static web page.</li>
+  <li>The server receives the request and routes it to the appropriate view function based on the URL configuration.</li>
+  <li>The view function processes the request and prepares the necessary data to render the template. In the case of a static web page, the data may be minimal or not required at all.</li>
+  <li>The view function selects the appropriate template to render the static web page. In this case, the template is a simple HTML file.</li>
+  <li>The template engine takes the template and the data provided by the view function and renders the HTML content. It replaces any template tags or variables with their corresponding values.</li>
+  <li>The rendered HTML content is returned as the response from the view function.</li>
+  <li>The server sends the response back to the client, which receives the HTML content.</li>
+  <li>The client's web browser interprets the HTML content and renders it, displaying the static web page to the user.</li>
+</ol>
+{% endblock %}
