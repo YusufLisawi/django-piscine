@@ -29,8 +29,7 @@ def test_elem_basics():
     # Arguments order :
     assert str(Elem('div', {}, None, 'double')) == '<div></div>'
     # Argument names :
-    assert str(Elem(tag='body', attr={}, content=Elem(),
-                    tag_type='double')) == '<body>\n  <div></div>\n</body>'
+    assert str(Elem(tag='body', attr={}, content=Elem(), tag_type='double')) == '<body>\n  <div></div>\n</body>'
     # With elem as content :
     assert str(Elem(content=Elem())) == '<div>\n  <div></div>\n</div>'
     # With list as content :
