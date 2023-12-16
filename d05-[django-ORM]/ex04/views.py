@@ -122,10 +122,8 @@ def remove(request):
         form = RemoveForm(request.POST)
         if form.is_valid():
             title = form.cleaned_data['titles']
-            print(title)
             try:
                 execute(f'DELETE FROM {table_name} WHERE title=\'{title}\'')
-                return redirect('ex04.display')
             except Exception as e:
-                HttpResponse(e)
+                return HttpResponse(e)
     return render(request, 'form.html', {'form' : RemoveForm()})

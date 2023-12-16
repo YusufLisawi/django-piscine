@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Results{% endblock title %}
+
+{% block content %}
+{% if people|length == 0  %}
+    <p>No data available, please use the following command line before use: <br> <b>python manage.py loaddata file.json</b></p>
+    {% else %}
+    <table>
+        <tr>
+            {% for header in headers %}
+            <th>
+                {{ header }}
+            </th>
+            {% endfor %}
+        </tr>
+        {% for person in people %}
+        <tr>
+            {% for p in person %}
+            <td>
+                {{ p }}
+            </td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+{% endif %}
+{% endblock content %}
