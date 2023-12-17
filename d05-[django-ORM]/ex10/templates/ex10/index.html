@@ -1,0 +1,33 @@
+{% extends "ex10/base.html" %}
+{% load filters %}
+
+{% block title %}Many to Many{% endblock title %}
+{% block style %}
+<style>
+    form label {
+        display : block
+    }
+</style>
+{% endblock style %}
+
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit">Filter</button>
+</form>
+
+{% if results %}
+<div class="results">
+    {% if results|length > 0 %}
+        <ul>
+            {% for r in results %}
+                <li>{{ r|join_with:" - " }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <h2>Nothing corresponding to your research</h2>
+    {% endif %}
+</div>
+{% endif %}
+{% endblock content %}
