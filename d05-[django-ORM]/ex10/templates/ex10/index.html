@@ -17,7 +17,7 @@
     <button type="submit">Filter</button>
 </form>
 
-{% if results %}
+{% if results is not None %}
 <div class="results">
     {% if results|length > 0 %}
         <ul>
