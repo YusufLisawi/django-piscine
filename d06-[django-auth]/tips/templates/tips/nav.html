@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <div class="d-flex">
+            <a class="navbar-brand" href="{% url 'index' %}">Life Pro Tips</a>
+            <ul class="navbar-nav mx-3">
+                <li class="nav-item">
+                    <a class="nav-link" href="/create-post">Post</a>
+                </li>
+            </ul>
+        </div>
+        <div class="d-flex align-items-center">
+            <p class="text-white mb-0 align-self-center ">
+                Hello, {{ request.user.username }} |
+            </p>
+            <ul class="navbar-nav">
+                {% if request.user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">Logout</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="/login">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/register">Register</a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>

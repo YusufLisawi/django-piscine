@@ -1,0 +1,15 @@
+{% extends "tips/base.html" %}
+{% load filters %}
+{% load bootstrap3 %}
+{% block title %}Login{% endblock title %}
+
+{% block content %}
+<h1>Login</h1>
+<form method="post">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <br />
+    <p>Don't have an account? Create one <a href="/register">Here</a></p>
+    <button type="submit" class="btn btn-primary">Login</button>
+</form>
+{% endblock content %}

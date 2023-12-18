@@ -40,6 +40,8 @@ ANONYMOUS_NAMES = [
     "Theon Greyjoy"
 ]
 
+LOGIN_URL = '/login/'
+LOGIN_REDIRECT_URL = '/'
 
 # Application definition
 
@@ -50,6 +52,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'bootstrap3',
     'bootstrap5',
     'tips',
 ]
